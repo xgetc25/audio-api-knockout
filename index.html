@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My test player</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.0.min.js"></script>
+  <script type="text/javascript" src="knockout-3.1.0.js"></script>
+
+
+  <script type="text/javascript" src="js/player.js"></script>
+  <script type="text/javascript" src="js/viewmodel.js"></script>
+</head>
+<body>
+<div id="wrapper">
+
+  <h1>My Audio Player</h1>
+
+  <div id="player">
+    <label for="filename">Choose song:</label><input data-bind="event: { change: changeSong }" name="filename" type="file" />
+    <div class="song">
+      <button class="toggleButton" data-bind="click: toggleClick, text: playStatus"></button>
+      <div class="content">
+      <input type="text" data-bind="value: currentTime"/>
+      <input type="range" data-bind="click: progressClick, value: percent" min="0" max="100" />
+      </div>
+      <input class="duration" data-bind="value: duration" type="text" />
+      <button class="toggleButton" data-bind="click: muteClick, text: muteStatus"></button>
+    </div>
+
+  </div>
+
+  <audio src="" id="audio" ></audio>
+
+</div>
+</body>
